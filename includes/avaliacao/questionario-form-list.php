@@ -2,7 +2,7 @@
    <div class="container-fluid">
       <div class="row">
          <div class="col-12">
-            <div class="card card-purple">
+            <div class="card card-success">
                <div class="card-header">
 
                </div>
@@ -39,17 +39,42 @@
                      </thead>
                      <tbody>';
                      foreach ($result as $val) {
-
-                      echo '<tr>
-                      <td><div class="icheck-success d-inline">
-                      <input type="radio" id="radioPrimary3" name="r1">
-                      <label for="radioPrimary3">
-                    
-                      </label>
-                    </div></td>
-                      <td style="text-transform: uppercase; font-size:14px">'.$val->resp.'</td>
-                      </tr></tbody>';
+                        
+                        switch ($val->tipo_id) {
+                           case '1':
+                              echo '<tr>
+                              <td><div class="icheck-success d-inline">
+                              <input type="radio" id="radioPrimary3" name="tipo">
+                              <label for="radioPrimary3">
+                            
+                              </label>
+                            </div></td>
+                              <td style="text-transform: uppercase; font-size:14px">'.$val->resp.'</td>
+                              </tr></tbody>';
+                              break;
+                           case '2':
+                              echo '<tr>
+                              <td><div class="icheck-success d-inline">
+                              <input type="checkbox" id="radioPrimary" name="tipo[]">
+                              <label for="radioPrimary">
+                            
+                              </label>
+                            </div</td>
+                              <td style="text-transform: uppercase; font-size:14px">'.$val->resp.'</td>
+                              </tr></tbody>';
+                              break;
+                           
+                           default:
+                           echo '<tr>
+                              <td><textarea name="" id="" cols="50" rows="5"></textarea></td>
+                              <td style="text-transform: uppercase; font-size:14px">'.$val->resp.'</td>
+                              </tr></tbody>';
+                              break;
+                        }
+                     
                      }
+
+                     
                      }
 
                      ?>

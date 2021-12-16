@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15-Dez-2021 às 03:05
--- Versão do servidor: 10.4.17-MariaDB
--- versão do PHP: 7.4.14
+-- Tempo de geração: 16-Dez-2021 às 15:47
+-- Versão do servidor: 10.4.18-MariaDB
+-- versão do PHP: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -127,23 +127,44 @@ CREATE TABLE `questao_respostas` (
 CREATE TABLE `respostas` (
   `id` int(11) NOT NULL,
   `resp` varchar(225) DEFAULT NULL,
-  `questao_id` int(11) NOT NULL
+  `questao_id` int(11) NOT NULL,
+  `tipo_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `respostas`
 --
 
-INSERT INTO `respostas` (`id`, `resp`, `questao_id`) VALUES
-(23, 'Jusué', 10),
-(24, 'Faraó', 10),
-(25, 'Deus', 10),
-(26, 'Emanuel', 10),
-(27, 'R|eis dos reis', 10),
-(28, 'Jesus Eterno', 10),
-(31, 'Instrutor', 11),
-(32, 'Aluno', 11),
-(33, 'Gerente', 11);
+INSERT INTO `respostas` (`id`, `resp`, `questao_id`, `tipo_id`) VALUES
+(23, 'Jusué', 10, 1),
+(24, 'Faraó', 10, 1),
+(25, 'Deus', 10, 1),
+(26, 'Emanuel', 10, 1),
+(27, 'R|eis dos reis', 10, 1),
+(28, 'Jesus Eterno', 10, 1),
+(31, 'Instrutor', 11, 2),
+(32, 'Aluno', 11, 2),
+(33, 'Gerente', 11, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tipo`
+--
+
+CREATE TABLE `tipo` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tipo`
+--
+
+INSERT INTO `tipo` (`id`, `nome`) VALUES
+(1, 'Simples Escolha'),
+(2, 'Multipla escolha'),
+(3, 'Texto');
 
 -- --------------------------------------------------------
 
@@ -211,7 +232,14 @@ ALTER TABLE `questao_respostas`
 --
 ALTER TABLE `respostas`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_respostas_questao_idx` (`questao_id`);
+  ADD KEY `fk_respostas_questao_idx` (`questao_id`),
+  ADD KEY `fk_respostas_tipo1_idx` (`tipo_id`);
+
+--
+-- Índices para tabela `tipo`
+--
+ALTER TABLE `tipo`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices para tabela `usuarios`
@@ -263,6 +291,12 @@ ALTER TABLE `respostas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
+-- AUTO_INCREMENT de tabela `tipo`
+--
+ALTER TABLE `tipo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -289,7 +323,8 @@ ALTER TABLE `questao_respostas`
 -- Limitadores para a tabela `respostas`
 --
 ALTER TABLE `respostas`
-  ADD CONSTRAINT `fk_respostas_questao` FOREIGN KEY (`questao_id`) REFERENCES `questao` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_respostas_questao` FOREIGN KEY (`questao_id`) REFERENCES `questao` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_respostas_tipo1` FOREIGN KEY (`tipo_id`) REFERENCES `tipo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

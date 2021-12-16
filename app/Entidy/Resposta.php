@@ -63,6 +63,12 @@ class Resposta{
             ->fetchObject(self::class);
     }
 
+    public static function getQuestaoID($fields, $table, $where, $order, $limit)
+    {
+        return (new Database('respostas'))->select($fields, $table, 'questao_id = ' . $where, $order, $limit)
+            ->fetchObject(self::class);
+    }
+
 
 
 public function excluir(){

@@ -4,15 +4,20 @@ $list = '';
 
 
 $resultados = '';
+$contar = 0;
 
 foreach ($listar as $item) {
-
+   $contar += 1;
    $resultados .= '<tr>
                       <td>' . $item->id . '</td>
                       <td>' . $item->titulo . '</td>
                     
                       <td style="text-align: center;">
-                        
+
+                      <a href="questionario-list.php?id=' . $item->id . '">
+                      <button type="button" class="btn btn-default"> <i class="fas fa-eye"></i> &nbsp; &nbsp; Preview</button>
+                      </a>
+                      &nbsp;  
                       <a href="questao-list.php?id=' . $item->id . '">
                       <button type="button" class="btn btn-primary"> <i class="fas fa-plus"></i> &nbsp; &nbsp; Incluir Questões</button>
                       </a>
@@ -101,7 +106,7 @@ foreach ($paginas as $key => $pagina) {
                            <th style="text-align: left; width:80px"> CÓDIGO </th>
                            <th> AVALIAÇÃO </th>
                           
-                           <th style="text-align: center; width:400px"> AÇÃO </th>
+                           <th style="text-align: center; width:450px"> AÇÃO </th>
                         </tr>
                      </thead>
                      <tbody>

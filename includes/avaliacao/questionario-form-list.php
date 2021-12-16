@@ -47,7 +47,7 @@
                     
                       </label>
                     </div></td>
-                      <td>'.$val->resp.'</td>
+                      <td style="text-transform: uppercase; font-size:14px">'.$val->resp.'</td>
                       </tr></tbody>';
                      }
                      }

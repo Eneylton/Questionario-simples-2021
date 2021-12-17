@@ -12,8 +12,8 @@ foreach ($listar as $item) {
    $contar += 1;
 
    $resultados .= '<tr>
-                      <td style="display:none">' . $item->id. '</td>
-                      <td style="display:none">' . $item->descricao. '</td>
+                      <td style="display:none">' . $item->id . '</td>
+                      <td style="display:none">' . $item->descricao . '</td>
                       <td><button type="submit" class="btn btn-success editbtn2" > <i class="fas fa-paint-brush"></i> </button>
                       &nbsp;
                       &nbsp;
@@ -72,7 +72,7 @@ foreach ($paginas as $key => $pagina) {
       <div class="row">
          <div class="col-12">
             <div class="card card-purple">
-               
+
 
                <div class="table-responsive">
 
@@ -87,7 +87,7 @@ foreach ($paginas as $key => $pagina) {
                            <th style="text-align: left; width:150px"> CÓDIGO </th>
                            <th> Nº </th>
                            <th> Questão </th>
-                          
+
                            <th style="text-align: center; width:400px"> AÇÃO </th>
                         </tr>
                      </thead>
@@ -117,7 +117,7 @@ foreach ($paginas as $key => $pagina) {
    <div class="modal-dialog">
       <div class="modal-content bg-light">
          <form action="./questao-insert.php" method="post">
-             <input type="hidden" value="<?= $id_avaliacao ?>" name="id_avaliacao">
+            <input type="hidden" value="<?= $id_avaliacao ?>" name="id_avaliacao">
             <div class="modal-header">
                <h4 class="modal-title">Nova Pergunta
                </h4>
@@ -148,7 +148,7 @@ foreach ($paginas as $key => $pagina) {
 <!-- EDITAR -->
 
 <div class="modal fade" id="editmodal">
-   <div class="modal-dialog">
+   <div class="modal-dialog modal-lg">
       <form action="./resposta-insert.php" method="get">
          <div class="modal-content bg-light">
             <div class="modal-header">
@@ -161,32 +161,85 @@ foreach ($paginas as $key => $pagina) {
             <div class="modal-body">
                <input type="hidden" name="id" id="id">
                <input type="hidden" name="id_avaliacao" value="<?= $id_avaliacao ?>">
-               <div class="form-group">
-                  <label>Resposta 1</label>
-                  <input type="text" class="form-control" name="resp1" required >
+
+               <div class="row">
+                  <div class="col-12">
+
+                     <label>Selecione o tipo de avaliação</label>
+                     <select class="form-control " style="width: 100%;" name="tipo_id" id="tipo_id">
+
+                     <option value=""> Selecione um tipo </option>
+                        <?php
+
+
+                        foreach ($tipos as $item) {
+                           echo '<option value="' . $item->id . '">' . $item->nome . '</option>';
+                        }
+                        ?>
+
+                     </select>
+
+                  </div>
                </div>
-               <div class="form-group">
-                  <label>Resposta 2</label>
-                  <input type="text" class="form-control" name="resp2" required >
+
+               <div class="row">
+
+                  <div class="col-6">
+                     <div class="form-group">
+                        <label>Resposta 1</label>
+                        <input type="text" class="form-control" name="resp1" required>
+                     </div>
+
+                  </div>
+                  <div class="col-6">
+                     <div class="form-group">
+                        <label>Resposta 2</label>
+                        <input type="text" class="form-control" name="resp2">
+                     </div>
+
+                  </div>
+
+
                </div>
-               <div class="form-group">
-                  <label>Resposta 3</label>
-                  <input type="text" class="form-control" name="resp3" >
+               <div class="row">
+                  <div class="col-6">
+                     <div class="form-group">
+                        <label>Resposta 3</label>
+                        <input type="text" class="form-control" name="resp3">
+                     </div>
+
+
+                  </div>
+                  <div class="col-6">
+                     <div class="form-group">
+                        <label>Resposta 4</label>
+                        <input type="text" class="form-control" name="resp4">
+                     </div>
+
+
+                  </div>
                </div>
-               <div class="form-group">
-                  <label>Resposta 4</label>
-                  <input type="text" class="form-control" name="resp4" >
+               <div class="row">
+                  <div class="col-6">
+                     <div class="form-group">
+                        <label>Resposta 5</label>
+                        <input type="text" class="form-control" name="resp5">
+                     </div>
+
+
+                  </div>
+                  <div class="col-6">
+
+                     <div class="form-group">
+                        <label>Resposta 6</label>
+                        <input type="text" class="form-control" name="resp6">
+                     </div>
+
+                  </div>
+
                </div>
-               <div class="form-group">
-                  <label>Resposta 5</label>
-                  <input type="text" class="form-control" name="resp5">
-               </div>
-               <div class="form-group">
-                  <label>Resposta 6</label>
-                  <input type="text" class="form-control" name="resp6" >
-               </div>
-              
-       
+
+
             </div>
             <div class="modal-footer justify-content-between">
                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
@@ -215,9 +268,9 @@ foreach ($paginas as $key => $pagina) {
                <input type="hidden" name="id_avaliacao2" value="<?= $id_avaliacao ?>">
                <div class="form-group">
                   <label>Questão</label>
-                  <input type="text" class="form-control" name="descricao" id="descricao" required >
+                  <input type="text" class="form-control" name="descricao" id="descricao" required>
                </div>
-       
+
             </div>
             <div class="modal-footer justify-content-between">
                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>

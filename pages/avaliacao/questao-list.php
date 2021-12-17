@@ -3,6 +3,7 @@ require __DIR__ . '../../../vendor/autoload.php';
 
 use  \App\Db\Pagination;
 use   \App\Entidy\Avaliacao;
+use App\Entidy\Tipo;
 use    \App\Session\Login;
 
 $avaliacao ="";
@@ -29,7 +30,7 @@ $buscar = filter_input(INPUT_GET, 'buscar', FILTER_SANITIZE_STRING);
 
 $condicoes = [
     strlen($buscar) ? 'id LIKE "%'.str_replace(' ','%',$buscar).'%" or 
-                       descricao LIKE "%'.str_replace(' ','%',$buscar).'%"' : null
+    descricao LIKE "%'.str_replace(' ','%',$buscar).'%"' : null
 ];
 
 $condicoes = array_filter($condicoes);
@@ -42,12 +43,15 @@ $pagination = new Pagination($qtd, $_GET['pagina'] ?? 1, 50);
 
 $listar = Avaliacao::getList('*','questao','avaliacao_id='.$id_avaliacao, 'id desc',$pagination->getLimit());
 
+$tipos = Tipo :: getList('*','tipo',null,'id DESC');
+
 include __DIR__ . '../../../includes/layout/header.php';
 include __DIR__ . '../../../includes/layout/top.php';
 include __DIR__ . '../../../includes/layout/menu.php';
 include __DIR__ . '../../../includes/layout/content.php';
 include __DIR__ . '../../../includes/avaliacao/questao-form-list.php';
 include __DIR__ . '../../../includes/layout/footer.php';
+
 
 ?>
 

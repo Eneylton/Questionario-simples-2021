@@ -37,7 +37,7 @@ foreach ($listar as $item) {
 }
 
 $resultados = strlen($resultados) ? $resultados : '<tr>
-                                                     <td colspan="6" class="text-center" > Nenhuma Vaga Encontrada !!!!! </td>
+                                                     <td colspan="6" class="text-center" > Nenhuma Avaliação Encontrada !!!!! </td>
                                                      </tr>';
 
 

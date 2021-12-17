@@ -35,7 +35,7 @@
                            <th> RESPOSTAS </th>
                           
                            
-                        </tr>
+                        </tr> 
                      </thead>
                      <tbody>';
                      foreach ($result as $val) {
@@ -66,8 +66,8 @@
                            
                            default:
                            echo '<tr>
-                              <td><textarea name="" id="" cols="50" rows="5"></textarea></td>
-                              <td style="text-transform: uppercase; font-size:14px">'.$val->resp.'</td>
+                              <td style="text-transform: uppercase; font-size:14px"></td>
+                              <td><textarea class="form-control" name="" rows="4" style="width:600px"></textarea></td>
                               </tr></tbody>';
                               break;
                         }

@@ -12,6 +12,7 @@ class Resposta{
     public $id;
     public $resp;
     public $questao_id;
+    public $tipo_id;
     
     public function cadastar(){
 
@@ -19,10 +20,10 @@ class Resposta{
         $obdataBase = new Database('respostas');  
         
         $this->id = $obdataBase->insert([
-          
-           
+            
             'resp'                  => $this->resp,
-            'questao_id'            => $this->questao_id
+            'questao_id'            => $this->questao_id,
+            'tipo_id'               => $this->tipo_id
           
         ]);
 
@@ -32,9 +33,10 @@ class Resposta{
 
     public function atualizar(){
         return (new Database ('respostas'))->update('id = ' .$this-> id, [
-    
+      
             'resp'                  => $this->resp,
-            'questao_id'            => $this->questao_id
+            'questao_id'            => $this->questao_id,
+            'tipo_id'               => $this->tipo_id
         ]);
       
     }

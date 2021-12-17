@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16-Dez-2021 às 15:47
--- Versão do servidor: 10.4.18-MariaDB
--- versão do PHP: 7.3.28
+-- Tempo de geração: 17-Dez-2021 às 01:45
+-- Versão do servidor: 10.4.17-MariaDB
+-- versão do PHP: 7.4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -58,7 +58,7 @@ CREATE TABLE `avaliacao` (
 --
 
 INSERT INTO `avaliacao` (`id`, `titulo`) VALUES
-(5, 'Avaliação 360 de funcionnários ?');
+(6, 'Avaliação 360 de funcinários - Pesquisa e qualidade');
 
 -- --------------------------------------------------------
 
@@ -103,8 +103,9 @@ CREATE TABLE `questao` (
 --
 
 INSERT INTO `questao` (`id`, `descricao`, `avaliacao_id`) VALUES
-(10, 'Qual o nome completo de jesus ?', 5),
-(11, 'Quem será avaliado ?', 5);
+(13, 'Qunda foi sua primeira demissão ?', 6),
+(14, 'Qual o nome completo de jesus ?', 6),
+(15, 'Como vai ser o ano de 2022 ?', 6);
 
 -- --------------------------------------------------------
 
@@ -136,15 +137,13 @@ CREATE TABLE `respostas` (
 --
 
 INSERT INTO `respostas` (`id`, `resp`, `questao_id`, `tipo_id`) VALUES
-(23, 'Jusué', 10, 1),
-(24, 'Faraó', 10, 1),
-(25, 'Deus', 10, 1),
-(26, 'Emanuel', 10, 1),
-(27, 'R|eis dos reis', 10, 1),
-(28, 'Jesus Eterno', 10, 1),
-(31, 'Instrutor', 11, 2),
-(32, 'Aluno', 11, 2),
-(33, 'Gerente', 11, 2);
+(42, '2021', 13, 2),
+(43, '2022', 13, 2),
+(44, '2023', 13, 2),
+(45, 'Jusué', 14, 1),
+(46, 'Faraó', 14, 1),
+(47, 'Deus', 14, 1),
+(48, 'Respoda', 15, 3);
 
 -- --------------------------------------------------------
 
@@ -162,9 +161,9 @@ CREATE TABLE `tipo` (
 --
 
 INSERT INTO `tipo` (`id`, `nome`) VALUES
-(1, 'Simples Escolha'),
+(1, 'Resposta única '),
 (2, 'Multipla escolha'),
-(3, 'Texto');
+(3, 'Pergunta de resposta aberta');
 
 -- --------------------------------------------------------
 
@@ -264,7 +263,7 @@ ALTER TABLE `acessos`
 -- AUTO_INCREMENT de tabela `avaliacao`
 --
 ALTER TABLE `avaliacao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `cargos`
@@ -276,7 +275,7 @@ ALTER TABLE `cargos`
 -- AUTO_INCREMENT de tabela `questao`
 --
 ALTER TABLE `questao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `questao_respostas`
@@ -288,7 +287,7 @@ ALTER TABLE `questao_respostas`
 -- AUTO_INCREMENT de tabela `respostas`
 --
 ALTER TABLE `respostas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de tabela `tipo`
@@ -323,8 +322,8 @@ ALTER TABLE `questao_respostas`
 -- Limitadores para a tabela `respostas`
 --
 ALTER TABLE `respostas`
-  ADD CONSTRAINT `fk_respostas_questao` FOREIGN KEY (`questao_id`) REFERENCES `questao` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_respostas_tipo1` FOREIGN KEY (`tipo_id`) REFERENCES `tipo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_respostas_questao` FOREIGN KEY (`questao_id`) REFERENCES `questao` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_respostas_tipo1` FOREIGN KEY (`tipo_id`) REFERENCES `tipo` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

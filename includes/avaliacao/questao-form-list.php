@@ -166,7 +166,7 @@ foreach ($paginas as $key => $pagina) {
                   <div class="col-12">
 
                      <label>Selecione o tipo de avaliação</label>
-                     <select class="form-control " style="width: 100%;" name="tipo_id" id="tipo_id">
+                     <select class="form-control " style="width: 100%;" name="tipo_id" id="tipo_id" required>
 
                      <option value=""> Selecione um tipo </option>
                         <?php
@@ -187,7 +187,7 @@ foreach ($paginas as $key => $pagina) {
                   <div class="col-6">
                      <div class="form-group">
                         <label>Resposta 1</label>
-                        <input type="text" class="form-control" name="resp1" required>
+                        <input type="text" class="form-control" name="resp1" >
                      </div>
 
                   </div>

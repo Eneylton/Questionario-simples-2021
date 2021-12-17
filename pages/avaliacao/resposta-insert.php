@@ -11,6 +11,7 @@ $usuario = $usuariologado['id'];
 
 $id_questao = $_GET['id'];
 $id_avaliacao = $_GET['id_avaliacao'];
+$id_tipo = $_GET['tipo_id'];
 
 
 Login::requireLogin();
@@ -77,6 +78,11 @@ if(isset($_GET['resp1'])){
             $item5->cadastar();
 
         }
+
+            $item6 = new Resposta;
+            $item6->questao_id = $_GET['id'];
+            $item6->tipo_id = $_GET['tipo_id'];
+            $item6->cadastar();
 
 
         header('location: questao-list.php?id='.$id_avaliacao);

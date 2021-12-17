@@ -8,19 +8,20 @@ define('BRAND','Cadastrar Usuário');
 use App\Entidy\Questao;
 use App\Session\Login;
 
+Login::requireLogin();
+
+$usuariologado = Login:: getUsuarioLogado();
+
+$usuario = $usuariologado['id'];
+
 if (isset($_POST['submit'])) {
 
     echo "primeiro passo !!!!";
 
 }
 
-$usuariologado = Login:: getUsuarioLogado();
-
-$usuario = $usuariologado['id'];
-
 $id_avaliacao = $_POST['id_avaliacao'];
 
-Login::requireLogin();
 
 if(isset($_POST['descricao'])){
 

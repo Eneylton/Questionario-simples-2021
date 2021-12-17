@@ -6,10 +6,10 @@
                <div class="card-header">
 
                </div>
-
+               <form id="form1" action="prova-insert.php" method="post">
                <div class="table-responsive">
-
-                  <table class="table table-bordered table-hover table-striped">
+                  
+                  <table class="table table-bordered table-secondary table-hover table-striped">
                      <?php
 
                      use App\Entidy\Resposta;
@@ -44,22 +44,20 @@
                            case '1':
                               echo '<tr>
                               <td><div class="icheck-success d-inline">
-                              <input type="radio" id="radioPrimary3" name="tipo">
-                              <label for="radioPrimary3">
+                              <input type="radio" id="'. $val->id .'" name="tipo" value="'. $val->id .'">
+                              <label for="'. $val->id .'">
                             
                               </label>
-                            </div></td>
+                              </div></td>
                               <td style="text-transform: uppercase; font-size:14px">'.$val->resp.'</td>
                               </tr></tbody>';
                               break;
                            case '2':
                               echo '<tr>
-                              <td><div class="icheck-success d-inline">
-                              <input type="checkbox" id="radioPrimary" name="tipo[]">
-                              <label for="radioPrimary">
-                            
-                              </label>
-                            </div</td>
+                              <td><div class="icheck-info ">
+                              <input type="checkbox" value="' . $val->id . '" name="id[]" id="[' . $val->id . ']">
+                              <label for="[' . $val->id . ']"></label>
+                              </div></td>
                               <td style="text-transform: uppercase; font-size:14px">'.$val->resp.'</td>
                               </tr></tbody>';
                               break;
@@ -67,7 +65,7 @@
                            default:
                            echo '<tr>
                               <td style="text-transform: uppercase; font-size:14px"></td>
-                              <td><textarea class="form-control" name="" rows="4" style="width:600px"></textarea></td>
+                              <td><textarea class="form-control" name="escrita" rows="4" style="width:600px"></textarea></td>
                               </tr></tbody>';
                               break;
                         }
@@ -81,7 +79,10 @@
                   </table>
 
                </div>
-
+               <div>
+               <input type="submit" name="submit" value="Adicionar todos " class="btn btn-primary">
+               </div>
+              </form>
 
             </div>
 

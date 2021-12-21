@@ -7,6 +7,7 @@
 
                </div>
                <form id="form1" action="prova-insert.php" method="post">
+               <div>Registros terminam em <span id="time">Carregando...</span>!</div>
 
                <div class="table-responsive">
                   
@@ -28,7 +29,7 @@ foreach ($perguntas as $item) {
    $result = Resposta::getList('*', 'respostas', 'questao_id=' . $item->id, null, null);
    
    echo '<thead>
-                 <input type="hidden" name="id_avaliacao" value="'.$id_pergunta.'">
+                 <input type="hidden" name="id_avaliacao" value="'.$avaliacao_id.'">
                         <tr>
                            <td colspan="4" style="background-color:#ebfef4">
                               <h4><span style="text-transform: uppercase;">'.$contar. 'º) ' . $item->descricao . '</span></h4>
@@ -85,7 +86,7 @@ foreach ($perguntas as $item) {
 
                </div>
                <div>
-               <input type="submit" name="submit" value="Adicionar todos " class="btn btn-primary">
+               <input type="submit" name="submit" value="Finalizar " class="btn btn-primary">
                </div>
               </form>
 

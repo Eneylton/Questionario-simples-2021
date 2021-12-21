@@ -1,0 +1,6 @@
+SELECT 
+    r.id as id, r.resp as respostas, COUNT(qr.respostas_id) AS total
+FROM
+    questao_respostas qr
+        INNER JOIN
+    respostas AS r ON (qr.respostas_id = r.id) group by r.resp;

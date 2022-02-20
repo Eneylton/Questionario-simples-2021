@@ -7,7 +7,7 @@
 
                </div>
                <form id="form1" action="prova-insert.php" method="post">
-               <div>Registros terminam em <span id="time">Carregando...</span>!</div>
+
 
                <div class="table-responsive">
                   
@@ -49,8 +49,8 @@ foreach ($perguntas as $item) {
                            case '1':
                               echo '<tr>
                               <td><div class="icheck-success d-inline">
-                              <input type="radio" id="'. $val->id .'" name="id_resposta" value="'. $val->id .'">
-                              <label for="'. $val->id .'">
+                              <input type="radio" id="'.$val->id.'" name="tipo'.$val->questao_id.'" value="'.$val->resp.'">
+                              <label for="'.$val->id.'">
                             
                               </label>
                               </div></td>

@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
             $item->respostas_id  = $_POST['id_resposta'];
             $item->questao_id = $_POST['id_pergunata'];
             $item->status = 1;
-            $item->cadastar();
+            //$item->cadastar();
     }
 
     if (isset($_POST['id'])) {

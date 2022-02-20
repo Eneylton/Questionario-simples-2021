@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Dez-2021 às 20:16
--- Versão do servidor: 10.4.18-MariaDB
--- versão do PHP: 7.3.28
+-- Tempo de geração: 20-Fev-2022 às 04:12
+-- Versão do servidor: 10.4.17-MariaDB
+-- versão do PHP: 7.4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -58,7 +58,7 @@ CREATE TABLE `avaliacao` (
 --
 
 INSERT INTO `avaliacao` (`id`, `titulo`) VALUES
-(7, 'Teste');
+(9, 'Teste de satisfação');
 
 -- --------------------------------------------------------
 
@@ -94,7 +94,7 @@ INSERT INTO `cargos` (`id`, `descricao`) VALUES
 
 CREATE TABLE `questao` (
   `id` int(11) NOT NULL,
-  `descricao` varchar(45) DEFAULT NULL,
+  `descricao` varchar(255) DEFAULT NULL,
   `avaliacao_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -103,9 +103,10 @@ CREATE TABLE `questao` (
 --
 
 INSERT INTO `questao` (`id`, `descricao`, `avaliacao_id`) VALUES
-(23, 'Qual a idade do papa ?', 7),
-(24, 'Qual a cor do cavalo braco de napoleão ?', 7),
-(25, 'Fale mais sobre sua empresa', 7);
+(34, 'Quão é a utilização dos serviços da nossa empresa?', 9),
+(35, 'Em coparação com os nosso concorrentes, o preço dos nossos serviços é ?', 9),
+(36, 'Qual o nome completo de jesus ?', 9),
+(37, 'Dê sua sujestão', 9);
 
 -- --------------------------------------------------------
 
@@ -128,26 +129,11 @@ CREATE TABLE `questao_respostas` (
 --
 
 INSERT INTO `questao_respostas` (`id`, `data`, `status`, `escrita`, `questao_id`, `respostas_id`, `avaliacao_id`) VALUES
-(12, '2021-12-21 18:38:36', 1, NULL, 83, 76, 7),
-(13, '2021-12-21 18:38:41', 1, NULL, 83, 78, 7),
-(14, '2021-12-21 18:38:44', 1, NULL, 83, 81, 7),
-(15, '2021-12-21 18:38:49', 1, 'Texte de cadastro...', 83, 0, 7),
-(16, '2021-12-21 18:44:37', 1, NULL, 83, 73, 7),
-(17, '2021-12-21 18:44:37', 1, NULL, 83, 78, 7),
-(18, '2021-12-21 18:44:37', 1, NULL, 83, 81, 7),
-(19, '2021-12-21 18:44:37', 1, 'Outtros', 83, 0, 7),
-(20, '2021-12-21 18:52:29', 1, NULL, 83, 74, 7),
-(21, '2021-12-21 18:52:29', 1, NULL, 83, 78, 7),
-(22, '2021-12-21 18:52:29', 1, NULL, 83, 79, 7),
-(23, '2021-12-21 18:52:29', 1, NULL, 83, 80, 7),
-(24, '2021-12-21 18:52:29', 1, NULL, 83, 81, 7),
-(25, '2021-12-21 18:52:29', 1, 'Teste de cadstro', 83, 0, 7),
-(26, '2021-12-21 18:54:49', 1, NULL, 83, 74, 7),
-(27, '2021-12-21 18:54:49', 1, NULL, 83, 78, 7),
-(28, '2021-12-21 18:54:49', 1, NULL, 83, 79, 7),
-(29, '2021-12-21 18:54:49', 1, NULL, 83, 80, 7),
-(30, '2021-12-21 18:54:49', 1, NULL, 83, 81, 7),
-(31, '2021-12-21 18:54:49', 1, 'teste', 83, 0, 7);
+(67, '2022-02-20 03:10:49', 1, '0', 120, 117, 9),
+(68, '2022-02-20 03:10:49', 1, '0', 120, 118, 9),
+(69, '2022-02-20 03:10:49', 1, '0', 120, 112, 9),
+(70, '2022-02-20 03:10:49', 1, '0', 120, 114, 9),
+(71, '2022-02-20 03:10:49', 1, 'Eneylton Barros', 120, 0, 9);
 
 -- --------------------------------------------------------
 
@@ -167,17 +153,16 @@ CREATE TABLE `respostas` (
 --
 
 INSERT INTO `respostas` (`id`, `resp`, `questao_id`, `tipo_id`) VALUES
-(73, '22', 23, 1),
-(74, '90', 23, 1),
-(75, '85', 23, 1),
-(76, '35', 23, 1),
-(77, NULL, 23, 1),
-(78, 'Branco', 24, 2),
-(79, 'Preto', 24, 2),
-(80, 'Azul', 24, 2),
-(81, 'Vermelho', 24, 2),
-(82, NULL, 24, 2),
-(83, NULL, 25, 3);
+(111, 'Extremamente convinete ', 34, 1),
+(112, 'Muito convinete', 34, 1),
+(113, 'Pouco superior', 34, 1),
+(114, 'Extremamente convinete ', 35, 1),
+(115, 'Muito convinete', 35, 1),
+(116, 'Pouco superior', 35, 1),
+(117, 'Extremamente convinete ', 36, 2),
+(118, 'Muito superior', 36, 2),
+(119, 'Mais ao Menos convinete', 36, 2),
+(120, '', 37, 3);
 
 -- --------------------------------------------------------
 
@@ -296,7 +281,7 @@ ALTER TABLE `acessos`
 -- AUTO_INCREMENT de tabela `avaliacao`
 --
 ALTER TABLE `avaliacao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `cargos`
@@ -308,19 +293,19 @@ ALTER TABLE `cargos`
 -- AUTO_INCREMENT de tabela `questao`
 --
 ALTER TABLE `questao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de tabela `questao_respostas`
 --
 ALTER TABLE `questao_respostas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT de tabela `respostas`
 --
 ALTER TABLE `respostas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT de tabela `tipo`
@@ -348,7 +333,7 @@ ALTER TABLE `questao`
 -- Limitadores para a tabela `questao_respostas`
 --
 ALTER TABLE `questao_respostas`
-  ADD CONSTRAINT `fk_questao_respostas_avaliacao1` FOREIGN KEY (`avaliacao_id`) REFERENCES `avaliacao` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_questao_respostas_avaliacao1` FOREIGN KEY (`avaliacao_id`) REFERENCES `avaliacao` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `respostas`

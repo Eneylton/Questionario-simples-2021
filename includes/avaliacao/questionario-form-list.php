@@ -48,8 +48,8 @@ foreach ($perguntas as $item) {
                         switch ($val->tipo_id) {
                            case '1':
                               echo '<tr>
-                              <td><div class="icheck-success d-inline">
-                              <input type="radio" id="'.$val->id.'" name="tipo'.$val->questao_id.'" value="'.$val->resp.'">
+                              <td><div class="icheck-danger d-inline">
+                              <input type="radio" id="'.$val->id.'" name="tipo['.$val->questao_id.']" value="'.$val->id.'">
                               <label for="'.$val->id.'">
                             
                               </label>
@@ -71,7 +71,7 @@ foreach ($perguntas as $item) {
                            echo '<tr>
                               <input type="hidden" name="id_pergunata" value="'.$val->id.'">
                               <td style="text-transform: uppercase; font-size:14px"></td>
-                              <td><textarea class="form-control" name="escrita" rows="4" style="width:600px"></textarea></td>
+                              <td><textarea class="form-control" name="escrita" rows="4" style="width:600px" required></textarea></td>
                               </tr></tbody>';
                               break;
                         }
@@ -86,7 +86,7 @@ foreach ($perguntas as $item) {
 
                </div>
                <div>
-               <input type="submit" name="submit" value="Finalizar " class="btn btn-primary">
+               <input type="submit" name="submit" value="Finalizar " class="btn btn-primary" >
                </div>
               </form>
 

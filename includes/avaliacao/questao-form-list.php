@@ -114,7 +114,7 @@ foreach ($paginas as $key => $pagina) {
 
 
 <div class="modal fade" id="modal-default">
-   <div class="modal-dialog">
+   <div class="modal-dialog modal-lg">
       <div class="modal-content bg-light">
          <form action="./questao-insert.php" method="post">
             <input type="hidden" value="<?= $id_avaliacao ?>" name="id_avaliacao">
@@ -127,8 +127,34 @@ foreach ($paginas as $key => $pagina) {
             </div>
             <div class="modal-body">
                <div class="form-group">
-                  <label>Pergunta</label>
+                  <label>Questão</label>
                   <input type="text" class="form-control" name="descricao" required>
+               </div>
+               <div class="form-group">
+
+                     <label>Selecione o tipo </label>
+                     <select class="form-control " style="width: 100%;" name="tipo_id" id="tipo_id">
+
+                     <option value=""> Selecione um tipo </option>
+                        <?php
+
+
+                        foreach ($tipos as $item) {
+                           echo '<option value="' . $item->id . '">' . $item->nome . '</option>';
+                        }
+                        ?>
+
+                     </select>
+
+                  </div>
+
+               <div class="form-group input_fields_wrap">
+             
+                  <div class="col-6">
+                     <button class="add_field_button btn btn-primary"><i class="fas fa-plus"></i>&nbsp; Adicionar respostas</button><p></p>
+                     <input type="text" class="form-control" name="opcao[]">
+                  </div><p></p>
+                  
                </div>
 
             </div>

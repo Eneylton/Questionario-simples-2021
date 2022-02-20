@@ -91,6 +91,7 @@
 <script src="../../assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="../../assets/plugins/summernote/summernote-bs4.min.js"></script>
 <script src="../../assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="../../assets/plugins/bootstrap/js/bootstrap.bundle.js"></script>
 <script src="../../assets/dist/js/adminlte.js"></script>
 <script src="../../assets/dist/js/demo.js"></script>
 <script src="../../assets/dist/js/pages/dashboard.js"></script>

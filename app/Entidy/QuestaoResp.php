@@ -12,9 +12,9 @@ class QuestaoResp
     public $id;
     public $status;
     public $escrita;
-    public $questao_id;
-    public $avaliacao_id;
     public $respostas_id;
+    public $avaliacao_id;
+    public $usuarios_id;
 
     public function cadastar()
     {
@@ -26,8 +26,8 @@ class QuestaoResp
 
             'status'                    => $this->status,
             'escrita'                   => $this->escrita,
-            'questao_id'                => $this->questao_id,
             'avaliacao_id'              => $this->avaliacao_id,
+            'usuarios_id'               => $this->usuarios_id,
             'respostas_id'              => $this->respostas_id
 
         ]);
@@ -43,8 +43,8 @@ class QuestaoResp
 
             'status'                    => $this->status,
             'escrita'                   => $this->escrita,
-            'questao_id'                => $this->questao_id,
             'avaliacao_id'              => $this->avaliacao_id,
+            'usuarios_id'               => $this->usuarios_id,
             'respostas_id'              => $this->respostas_id
         ]);
     }

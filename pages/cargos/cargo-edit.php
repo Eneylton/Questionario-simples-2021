@@ -2,15 +2,11 @@
 
 require __DIR__.'../../../vendor/autoload.php';
 
-
-
-$alertaCadastro = '';
-
 define('TITLE','Editar Usuários');
 define('BRAND','Editar Usuários');
 
-use \App\Entidy\Cargo;
-use   \App\Session\Login;
+use App\Entidy\Cargo;
+use App\Session\Login;
 
 
 Login::requireLogin();

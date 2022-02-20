@@ -12,7 +12,7 @@ foreach ($listar as $item) {
                       <td>' . $item->id . '</td>
                       <td>' . $item->titulo . '</td>
                     
-                      <td style="text-align: center;">
+                      <td style="text-align: center;width:600px">
 
                       <a href="questionario-list.php?id=' . $item->id . '">
                       <button type="button" class="btn btn-default"> <i class="fas fa-eye"></i> &nbsp; &nbsp; Preview</button>
@@ -20,6 +20,10 @@ foreach ($listar as $item) {
                       &nbsp;  
                       <a href="questao-list.php?id=' . $item->id . '">
                       <button type="button" class="btn btn-primary"> <i class="fas fa-plus"></i> &nbsp; &nbsp; Incluir Questões</button>
+                      </a>
+                      &nbsp;  
+                      <a href="estatistica-list.php?id=' . $item->id . '">
+                      <button type="button" class="btn btn-warning"><i class="fas fa-chart-bar"></i></button>
                       </a>
                       &nbsp;
                       <button type="submit" class="btn btn-success editbtn" > <i class="fas fa-paint-brush"></i> </button>

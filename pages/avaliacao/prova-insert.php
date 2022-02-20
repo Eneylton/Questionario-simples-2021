@@ -23,8 +23,8 @@ if (isset($_POST['submit'])) {
 
             $item = new QuestaoResp;
             $item->avaliacao_id = $_POST['id_avaliacao'];
+            $item->usuarios_id = $usuario;
             $item->respostas_id  = $id;
-            $item->questao_id = $_POST['id_pergunata'];
             $item->escrita = 0;
             $item->status = 1;
             $item->cadastar();
@@ -38,8 +38,8 @@ if (isset($_POST['submit'])) {
 
             $item = new QuestaoResp;
             $item->avaliacao_id = $_POST['id_avaliacao'];
+            $item->usuarios_id = $usuario;
             $item->respostas_id  = $id2;
-            $item->questao_id = $_POST['id_pergunata'];
             $item->escrita = 0;
             $item->status = 1;
             $item->cadastar();
@@ -50,8 +50,8 @@ if (isset($_POST['submit'])) {
 
         $item = new QuestaoResp;
         $item->avaliacao_id = $_POST['id_avaliacao'];
-        $item->respostas_id  = 0;
-        $item->questao_id = $_POST['id_pergunata'];
+        $item->respostas_id  = $_POST['id_pergunta'];
+        $item->usuarios_id = $usuario;
         $item->escrita = $_POST['escrita'];
         $item->status = 1;
         $item->cadastar();

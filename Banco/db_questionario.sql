@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Fev-2022 às 04:12
+-- Tempo de geração: 20-Fev-2022 às 22:56
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 7.4.14
 
@@ -58,7 +58,7 @@ CREATE TABLE `avaliacao` (
 --
 
 INSERT INTO `avaliacao` (`id`, `titulo`) VALUES
-(9, 'Teste de satisfação');
+(16, 'Teste de satisfação');
 
 -- --------------------------------------------------------
 
@@ -103,10 +103,10 @@ CREATE TABLE `questao` (
 --
 
 INSERT INTO `questao` (`id`, `descricao`, `avaliacao_id`) VALUES
-(34, 'Quão é a utilização dos serviços da nossa empresa?', 9),
-(35, 'Em coparação com os nosso concorrentes, o preço dos nossos serviços é ?', 9),
-(36, 'Qual o nome completo de jesus ?', 9),
-(37, 'Dê sua sujestão', 9);
+(56, 'Quão é a utilização dos serviços da nossa empresa?', 16),
+(57, 'Quão profissional é nossa empresa ?', 16),
+(58, 'Em coparação com os nosso concorrentes, a qualidade dos nossos serviços é superior ?', 16),
+(59, 'Em coparação com os nosso concorrentes, o preço dos nossos serviços é ?', 16);
 
 -- --------------------------------------------------------
 
@@ -118,22 +118,70 @@ CREATE TABLE `questao_respostas` (
   `id` int(11) NOT NULL,
   `data` timestamp NULL DEFAULT current_timestamp(),
   `status` int(11) DEFAULT NULL,
-  `escrita` varchar(255) DEFAULT NULL,
-  `questao_id` int(11) NOT NULL,
   `respostas_id` int(11) NOT NULL,
-  `avaliacao_id` int(11) NOT NULL
+  `avaliacao_id` int(11) NOT NULL,
+  `escrita` varchar(555) DEFAULT NULL,
+  `usuarios_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `questao_respostas`
 --
 
-INSERT INTO `questao_respostas` (`id`, `data`, `status`, `escrita`, `questao_id`, `respostas_id`, `avaliacao_id`) VALUES
-(67, '2022-02-20 03:10:49', 1, '0', 120, 117, 9),
-(68, '2022-02-20 03:10:49', 1, '0', 120, 118, 9),
-(69, '2022-02-20 03:10:49', 1, '0', 120, 112, 9),
-(70, '2022-02-20 03:10:49', 1, '0', 120, 114, 9),
-(71, '2022-02-20 03:10:49', 1, 'Eneylton Barros', 120, 0, 9);
+INSERT INTO `questao_respostas` (`id`, `data`, `status`, `respostas_id`, `avaliacao_id`, `escrita`, `usuarios_id`) VALUES
+(96, '2022-02-20 20:36:54', 1, 177, 16, '0', 7),
+(97, '2022-02-20 20:36:54', 1, 178, 16, '0', 7),
+(98, '2022-02-20 20:36:54', 1, 162, 16, '0', 7),
+(99, '2022-02-20 20:36:54', 1, 167, 16, '0', 7),
+(100, '2022-02-20 20:36:54', 1, 172, 16, '0', 7),
+(101, '2022-02-20 20:37:14', 1, 177, 16, '0', 7),
+(102, '2022-02-20 20:37:14', 1, 181, 16, '0', 7),
+(103, '2022-02-20 20:37:14', 1, 163, 16, '0', 7),
+(104, '2022-02-20 20:37:14', 1, 168, 16, '0', 7),
+(105, '2022-02-20 20:37:14', 1, 174, 16, '0', 7),
+(106, '2022-02-20 20:37:30', 1, 177, 16, '0', 7),
+(107, '2022-02-20 20:37:30', 1, 178, 16, '0', 7),
+(108, '2022-02-20 20:37:30', 1, 163, 16, '0', 7),
+(109, '2022-02-20 20:37:30', 1, 167, 16, '0', 7),
+(110, '2022-02-20 20:37:30', 1, 172, 16, '0', 7),
+(111, '2022-02-20 20:37:50', 1, 181, 16, '0', 7),
+(112, '2022-02-20 20:37:50', 1, 182, 16, '0', 7),
+(113, '2022-02-20 20:37:50', 1, 165, 16, '0', 7),
+(114, '2022-02-20 20:37:50', 1, 169, 16, '0', 7),
+(115, '2022-02-20 20:37:50', 1, 176, 16, '0', 7),
+(116, '2022-02-20 20:38:11', 1, 177, 16, '0', 7),
+(117, '2022-02-20 20:38:11', 1, 178, 16, '0', 7),
+(118, '2022-02-20 20:38:11', 1, 179, 16, '0', 7),
+(119, '2022-02-20 20:38:11', 1, 180, 16, '0', 7),
+(120, '2022-02-20 20:38:11', 1, 181, 16, '0', 7),
+(121, '2022-02-20 20:38:11', 1, 182, 16, '0', 7),
+(122, '2022-02-20 20:38:11', 1, 165, 16, '0', 7),
+(123, '2022-02-20 20:38:11', 1, 175, 16, '0', 7),
+(124, '2022-02-20 21:44:31', 1, 177, 16, '0', 7),
+(125, '2022-02-20 21:44:31', 1, 178, 16, '0', 7),
+(126, '2022-02-20 21:44:31', 1, 179, 16, '0', 7),
+(127, '2022-02-20 21:44:31', 1, 180, 16, '0', 7),
+(128, '2022-02-20 21:44:31', 1, 181, 16, '0', 7),
+(129, '2022-02-20 21:44:31', 1, 182, 16, '0', 7),
+(130, '2022-02-20 21:44:31', 1, 162, 16, '0', 7),
+(131, '2022-02-20 21:44:31', 1, 167, 16, '0', 7),
+(132, '2022-02-20 21:44:31', 1, 172, 16, '0', 7),
+(133, '2022-02-20 21:49:37', 1, 177, 16, '0', 7),
+(134, '2022-02-20 21:49:37', 1, 178, 16, '0', 7),
+(135, '2022-02-20 21:49:37', 1, 162, 16, '0', 7),
+(136, '2022-02-20 21:49:37', 1, 167, 16, '0', 7),
+(137, '2022-02-20 21:49:37', 1, 172, 16, '0', 7),
+(138, '2022-02-20 21:49:54', 1, 177, 16, '0', 7),
+(139, '2022-02-20 21:49:54', 1, 178, 16, '0', 7),
+(140, '2022-02-20 21:49:54', 1, 162, 16, '0', 7),
+(141, '2022-02-20 21:49:54', 1, 167, 16, '0', 7),
+(142, '2022-02-20 21:49:54', 1, 172, 16, '0', 7),
+(143, '2022-02-20 21:50:14', 1, 177, 16, '0', 7),
+(144, '2022-02-20 21:50:14', 1, 179, 16, '0', 7),
+(145, '2022-02-20 21:50:14', 1, 182, 16, '0', 7),
+(146, '2022-02-20 21:50:14', 1, 162, 16, '0', 7),
+(147, '2022-02-20 21:50:14', 1, 167, 16, '0', 7),
+(148, '2022-02-20 21:50:14', 1, 172, 16, '0', 7);
 
 -- --------------------------------------------------------
 
@@ -153,16 +201,27 @@ CREATE TABLE `respostas` (
 --
 
 INSERT INTO `respostas` (`id`, `resp`, `questao_id`, `tipo_id`) VALUES
-(111, 'Extremamente convinete ', 34, 1),
-(112, 'Muito convinete', 34, 1),
-(113, 'Pouco superior', 34, 1),
-(114, 'Extremamente convinete ', 35, 1),
-(115, 'Muito convinete', 35, 1),
-(116, 'Pouco superior', 35, 1),
-(117, 'Extremamente convinete ', 36, 2),
-(118, 'Muito superior', 36, 2),
-(119, 'Mais ao Menos convinete', 36, 2),
-(120, '', 37, 3);
+(162, 'Extremamente convinete ', 56, 1),
+(163, 'Muito convinete', 56, 1),
+(164, 'Mais ao Menos convinete', 56, 1),
+(165, 'Pouco conviniente', 56, 1),
+(166, 'Nada conviniente ', 56, 1),
+(167, 'Extremamente convinete ', 57, 1),
+(168, 'Muito convinete', 57, 1),
+(169, 'Mais ao Menos convinete', 57, 1),
+(170, 'Pouco conviniente', 57, 1),
+(171, 'Nada conviniente', 57, 1),
+(172, 'Extremamente convinete ', 58, 1),
+(173, 'Muito convinete', 58, 1),
+(174, 'Mais ao Menos convinete', 58, 1),
+(175, 'Pouco conviniente', 58, 1),
+(176, 'Nada conviniente ', 58, 1),
+(177, 'Extremamente superior', 59, 2),
+(178, 'Extremamente superiorMuito superior', 59, 2),
+(179, 'Mais ao Menos superior', 59, 2),
+(180, 'Pouco superior', 59, 2),
+(181, 'Mais ou menos inferior', 59, 2),
+(182, 'Igual', 59, 2);
 
 -- --------------------------------------------------------
 
@@ -242,7 +301,8 @@ ALTER TABLE `questao`
 --
 ALTER TABLE `questao_respostas`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_questao_respostas_avaliacao1_idx` (`avaliacao_id`);
+  ADD KEY `fk_questao_respostas_avaliacao1_idx` (`avaliacao_id`),
+  ADD KEY `fk_questao_respostas_usuarios1_idx` (`usuarios_id`);
 
 --
 -- Índices para tabela `respostas`
@@ -281,7 +341,7 @@ ALTER TABLE `acessos`
 -- AUTO_INCREMENT de tabela `avaliacao`
 --
 ALTER TABLE `avaliacao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `cargos`
@@ -293,19 +353,19 @@ ALTER TABLE `cargos`
 -- AUTO_INCREMENT de tabela `questao`
 --
 ALTER TABLE `questao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT de tabela `questao_respostas`
 --
 ALTER TABLE `questao_respostas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
 
 --
 -- AUTO_INCREMENT de tabela `respostas`
 --
 ALTER TABLE `respostas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
 
 --
 -- AUTO_INCREMENT de tabela `tipo`
@@ -333,7 +393,8 @@ ALTER TABLE `questao`
 -- Limitadores para a tabela `questao_respostas`
 --
 ALTER TABLE `questao_respostas`
-  ADD CONSTRAINT `fk_questao_respostas_avaliacao1` FOREIGN KEY (`avaliacao_id`) REFERENCES `avaliacao` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_questao_respostas_avaliacao1` FOREIGN KEY (`avaliacao_id`) REFERENCES `avaliacao` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_questao_respostas_usuarios1` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `respostas`

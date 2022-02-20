@@ -70,6 +70,11 @@ class Resposta{
         return (new Database('respostas'))->select($fields, $table, 'questao_id = ' . $where, $order, $limit)
             ->fetchObject(self::class);
     }
+    public static function getQuestaoAll($fields, $table, $where, $order, $limit)
+    {
+        return (new Database('respostas'))->select($fields, $table, 'questao_id = ' . $where, $order, $limit)
+        ->fetchAll(PDO::FETCH_CLASS, self::class);
+    }
 
 
 

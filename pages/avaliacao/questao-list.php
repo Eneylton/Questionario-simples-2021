@@ -26,7 +26,7 @@ define('BRAND','Avaliação');
 Login::requireLogin();
 
 
-$buscar = filter_input(INPUT_GET, 'buscar', FILTER_SANITIZE_STRING);
+$buscar = filter_input(INPUT_GET, 'buscar', FILTER_UNSAFE_RAW);
 
 $condicoes = [
     strlen($buscar) ? 'id LIKE "%'.str_replace(' ','%',$buscar).'%" or 
@@ -41,7 +41,7 @@ $qtd = Avaliacao:: getQtd($where);
 
 $pagination = new Pagination($qtd, $_GET['pagina'] ?? 1, 50);
 
-$listar = Avaliacao::getList('*','questao','avaliacao_id='.$id_avaliacao, 'id desc',$pagination->getLimit());
+$listar = Avaliacao::getList('*','questao','avaliacao_id='.$id_avaliacao, 'id ASC',$pagination->getLimit());
 
 $tipos = Tipo :: getList('*','tipo',null,'id DESC');
 

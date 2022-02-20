@@ -28,13 +28,7 @@ foreach ($listar as $item) {
                       <td style="text-align: center;">
                         
                   
-                      <button type="button" class="btn btn-warning editbtn"> <i class="fas fa-plus"></i> &nbsp; &nbsp; Incluir Resposta</button>
-                      
-                      &nbsp;
-
-                      <a href="resposta-list.php?id=' . $item->id . '">
-                      <button type="button" class="btn btn-default"> <i class="fas fa-list-ol"></i> &nbsp; &nbsp; Editar Resposta</button>
-                      </a>
+                      <button class="btn btn-warning" onclick="listar(' . $item->id . ')" > <i class="fas fa-list"></i> &nbsp; Respostas</button>
 
 
                       </td>
@@ -305,6 +299,40 @@ foreach ($paginas as $key => $pagina) {
             </div>
          </div>
       </form>
+      <!-- /.modal-content -->
+   </div>
+   <!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade" id="listModal">
+   <div class="modal-dialog">
+
+      <div class="modal-content bg-light">
+         <div class="modal-header">
+            <h4 class="modal-title">RESPOSTAS
+            </h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+         <div class="col-12"> 
+            <span style="text-align:left !important;">LISTA DE RESPOSTAS</span>
+         </div>
+            
+            <div class="col-12"> 
+               <span class="listar"></span>
+            </div>
+
+         </div>
+         <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-success" data-dismiss="modal">Fechar</button>
+
+         </div>
+      </div>
+
       <!-- /.modal-content -->
    </div>
    <!-- /.modal-dialog -->
